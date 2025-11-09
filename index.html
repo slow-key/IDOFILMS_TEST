@@ -1,70 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-body {
-  background-color:#000000;
-}
-#myDIV {
-  height:300px;
-  background-color:#FFFFFF;
-}
-.bluediv {
-  width:200px;
-  background-color:lightblue;
-  margin: 10px 1px 15px 50px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abanob Nashat Productions - Digital Card</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the profile image crop and general container */
+        .profile-card-container {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 100vh;
+        }
 
-a:link, a:visited {
-  background-color: white;
-  color: black;
-  border: 2px solid green;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+        .header-bg {
+            height: 150px;
+            background-image: url('https://placehold.co/400x150/1f2937/ffffff?text=Background+Image+Placeholder');
+            background-size: cover;
+            background-position: center;
+        }
 
-a:hover, a:active {
-  background-color: green;
-  color: white;
-}
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border: 4px solid white;
+            margin-top: -50px; /* Pulls the image up over the header background */
+            position: relative;
+            z-index: 10;
+        }
 
-</style>
+        /* Styles for the social icons (using external SVGs/Font Awesome in a real scenario) */
+        .icon-link {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .icon-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#111827',
+                        'link-red': '#E1306C',
+                        'link-blue': '#4267B2',
+                        'link-vcard': '#59b049',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-    <meta charSet="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"/>
-    <title>I DO FILMS</title>
-<body>
+<body class="bg-gray-50 font-sans p-4">
 
-  
-  <h1>
-    Instagram Link
-  </h1>
+    <!-- Main Profile Card Container (Responsive and Centered) -->
+    <div class="profile-card-container bg-white shadow-xl rounded-xl p-0 text-center flex flex-col items-center">
 
+        <!-- Header Background Image Placeholder -->
+        <div class="header-bg w-full rounded-t-xl"></div>
 
+        <!-- Profile Image -->
+        <img src="https://placehold.co/100x100/3b82f6/ffffff?text=AN" alt="Profile Picture" class="profile-img rounded-full shadow-lg">
 
-  <div id="myDIV">
+        <!-- Name and Title -->
+        <h1 class="text-xl font-bold mt-3 text-gray-800">Abanob Nashat Productions</h1>
+        <p class="text-sm text-gray-500 mb-6">Digital Content Creators</p>
 
-   
+        <!-- Primary Action Button -->
+        <button id="mainActionButton" class="bg-black text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-800 transition duration-150 mb-6">
+            Share Your Info Back
+        </button>
 
-    <div class="bluediv">
-      "I DO FILMS"
+        <!-- NFC Simulation Button (For demonstration on unsupported devices) -->
+        <p class="text-xs text-gray-400 mb-2">Simulate the NFC scan on unsupported devices:</p>
+        <button id="simulateNFC" class="bg-blue-500 text-white px-4 py-2 text-sm rounded-lg hover:bg-blue-600 transition duration-150 mb-8">
+            Simulate NFC Scan
+        </button>
+
+        <!-- Links Grid -->
+        <div class="w-full px-6 pb-8">
+            <div class="grid grid-cols-3 gap-6">
+
+                <!-- Row 1 -->
+                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="w-12 h-12 rounded-xl object-cover shadow-md">
+                    <span class="text-xs mt-1 text-gray-700 font-medium">Instagram</span>
+                </a>
+                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <div class="w-12 h-12 bg-link-vcard rounded-xl flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <span class="text-xs mt-1 text-gray-700 font-medium">Contact Card</span>
+                </a>
+                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <div class="w-12 h-12 bg-gray-500 rounded-xl flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <span class="text-xs mt-1 text-gray-700 font-medium">Website</span>
+                </a>
+
+                <!-- Row 2 -->
+                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook" class="w-12 h-12 rounded-xl object-cover shadow-md">
+                    <span class="text-xs mt-1 text-gray-700 font-medium">Facebook</span>
+                </a>
+                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <div class="w-12 h-12 bg-blue-400 rounded-xl flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
+                    <span class="text-xs mt-1 text-gray-700 font-medium">Email</span>
+                </a>
+                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.85-5.85A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <span class="text-xs mt-1 text-gray-700 font-medium">Number</span>
+                </a>
+
+            </div>
+        </div>
+        
+        <p class="text-xs text-gray-400 mt-4 mb-4">Responsive Digital Card & NFC Demo</p>
     </div>
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.instagram.com/Idofilms.co/"/>
-    <img src="Instagram.jpg" width="50" height="50">
-    
-    <a href="https://www.facebook.com/IDoFilms.co/" target="_blank">Visit Idofilms Facebook</a>
-    <a href="https://www.instagram.com/Idofilms.co/" target="_blank">Visit Idofilms Instagram</a>
 
-    <hr>
-    <p>
-      This paragraph contains a lot of lines in the source code, but the browser ignores it. 
-    </p>
+    <!-- NFC Popup Modal (Initially hidden) -->
+    <div id="nfcModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="nfcModalContent">
+            <h3 class="text-2xl font-bold text-green-600 mb-2 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                NFC Scan Detected!
+            </h3>
+            <p class="text-gray-700 mb-4" id="nfcMessage">You just scanned a tag! This pop-up confirms successful data transfer. Welcome!</p>
+            <p class="text-xs text-gray-500 mb-4">Note: This is a simulation or an active Web NFC event (Android only).</p>
+            <button onclick="closeModal()" class="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                Close
+            </button>
+        </div>
+    </div>
 
-  </div>
+    <script>
+        // Global references
+        const nfcModal = document.getElementById('nfcModal');
+        const nfcModalContent = document.getElementById('nfcModalContent');
+        const nfcMessage = document.getElementById('nfcMessage');
+
+        /**
+         * Function to show the NFC detection modal.
+         * @param {string} message - The message to display in the modal.
+         */
+        function showModal(message) {
+            nfcMessage.textContent = message;
+            nfcModal.classList.remove('hidden');
+            // Animate in
+            setTimeout(() => {
+                nfcModalContent.classList.remove('scale-95', 'opacity-0');
+                nfcModalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        /**
+         * Function to hide the NFC detection modal.
+         */
+        function closeModal() {
+            // Animate out
+            nfcModalContent.classList.remove('scale-100', 'opacity-100');
+            nfcModalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                nfcModal.classList.add('hidden');
+            }, 300); // Wait for animation to finish
+        }
 
 
+        // --------------------------------------------------------------------
+        // NFC Handling Logic
+        // --------------------------------------------------------------------
 
+        // 1. SIMULATION SETUP
+        document.getElementById('simulateNFC').addEventListener('click', () => {
+            console.log('NFC Scan Simulated!');
+            showModal('Simulated successful scan. This message confirms the user was directed here by a physical tag.');
+        });
+
+
+        // 2. REAL WEB NFC API IMPLEMENTATION (Active on supported devices/browsers like Android Chrome)
+        async function startNFCListener() {
+            if ('NDEFReader' in window) {
+                console.log('Web NFC is supported. Attempting to start scan.');
+                
+                try {
+                    // Create a new NDEFReader instance
+                    const reader = new NDEFReader();
+
+                    // Start listening for NFC tag scans (using watch/scan depending on the API level)
+                    await reader.scan();
+
+                    // Event listener for when a tag is successfully read
+                    reader.onreading = event => {
+                        const message = `NFC Tag Detected with type: ${event.message.records[0].recordType}`;
+                        console.log(message, event.message);
+                        // The user is already on the page when they tap the tag, 
+                        // so this is for advanced use cases (e.g., reading data from the tag).
+                        showModal(message); 
+                    };
+
+                    // Event listener for errors
+                    reader.onerror = error => {
+                        console.error('NFC Error:', error);
+                        // This might happen if permission is denied or no tag is found
+                    };
+
+                } catch (error) {
+                    // Handle case where permission is denied or other initialization errors occur
+                    console.error(`Error initiating NFC scan: ${error.name}`, error);
+                }
+            } else {
+                console.warn('Web NFC API (NDEFReader) is not supported in this browser/device.');
+                document.getElementById('simulateNFC').textContent = "Web NFC Not Supported Here";
+            }
+        }
+
+        // Start the NFC listener when the page loads
+        window.onload = startNFCListener;
+
+    </script>
 </body>
 </html>
