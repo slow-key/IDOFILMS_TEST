@@ -1,0 +1,58 @@
+<?php
+header('Content-Type: application/json');
+$contact_file = 'contacts.csv';
+$data_received = false;
+
+try {
+    // 1. Get the JSON payload from the request body
+    $json_data = file_get_contents('php://input');
+    $data = json_decode($json_data, true);
+
+    // 2. Simple validation
+    if (empty($data) || !isset($data['name']) || !isset($data['phone']) || !isset($data['email'])) {
+        http_response_code(400); // Bad Request
+        echo json_encode(['success' => false, 'message' => 'Invalid or missing data fields.']);
+        exit;
+    }
+
+    $name = trim($data['name']);
+    $phone = trim($data['phone']);
+    $email = trim($data['email']);
+    $timestamp = date('Y-m-d H:i:s'); 
+
+    // 3. Define the CSV row data
+    // Use double quotes and escape quotes within data to handle commas correctly
+    $row_data = [
+        $timestamp,
+        str_replace('"', '""', $name), 
+        str_replace('"', '""', $phone),
+        str_replace('"', '""', $email)
+    ];
+
+    // 4. Open file for appending (create if it doesn't exist)
+    $handle = fopen($contact_file, 'a');
+    if ($handle === false) {
+        throw new Exception("Could not open/create the contact file for writing.");
+    }
+    
+    // Check if file is empty (needs headers)
+    if (filesize($contact_file) == 0) {
+        $headers = ["Timestamp", "Name", "Phone Number", "Email"];
+        fputcsv($handle, $headers);
+    }
+
+    // Write the new data row
+    fputcsv($handle, $row_data);
+
+    // Close the file handle
+    fclose($handle);
+    
+    // 5. Success response
+    echo json_encode(['success' => true, 'message' => 'Data saved successfully to ' . $contact_file]);
+
+} catch (Exception $e) {
+    // Handle any exceptions during file operations
+    http_response_code(500); // Internal Server Error
+    echo json_encode(['success' => false, 'message' => 'Server Error: ' . $e->getMessage()]);
+}
+?>
