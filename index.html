@@ -228,15 +228,15 @@
             })
             .then(data => {
                 if (data.success) {
-                    const message = `Your information was successfully sent and saved to the 'contacts.csv' file on the server.`;
+                    const message = `Your information was successfully sent and saved to the file on the server.`;
                     showConfirmModal("Data Saved!", message, true);
                 } else {
-                    const message = data.message || "An unexpected error occurred on the server while saving. Check server logs.";
+                    const message = data.message || "An unexpected error occurred on the server while saving.";
                     showConfirmModal("Submission Failed", message, false);
                 }
             })
             .catch(error => {
-                const message = `Connection Error: Failed to complete request. Ensure PHP is set up and '${serverEndpoint}' is accessible. Details: ${error.message}`;
+                const message = `Connection Error: Failed to complete request.`;
                 showConfirmModal("Submission Failed", message, false);
             });
             
