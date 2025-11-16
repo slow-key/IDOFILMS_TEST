@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abanob Nashat Productions - Digital Card</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for the profile image crop and general container */
         .profile-card-container {
             max-width: 400px;
             margin-left: auto;
@@ -16,23 +14,21 @@
         }
 
         .header-bg {
-            height: 150px;
-            /* Using a relative path for the background image */
-            background-image: url('./background.jpg');
+            height: 250px;
+            background-image: url('background.jpg');
             background-size: cover;
             background-position: center;
         }
 
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border: 4px solid white;
-            margin-top: -50px; /* Pulls the image up over the header background */
+            margin-top: -50px;
             position: relative;
             z-index: 10;
         }
 
-        /* Styles for the social icons */
         .icon-link {
             transition: transform 0.2s, box-shadow 0.2s;
         }
@@ -61,93 +57,57 @@
 </head>
 <body class="bg-gray-50 font-sans p-4">
 
-    <!-- Main Profile Card Container (Responsive and Centered) -->
     <div class="profile-card-container bg-white shadow-xl rounded-xl p-0 text-center flex flex-col items-center">
 
-        <!-- Header Background Image Placeholder -->
         <div class="header-bg w-full rounded-t-xl"></div>
 
-        <!-- Profile Image -->
-        <img src="./profile.jpg" alt="Profile Picture" class="profile-img rounded-full shadow-lg">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-img rounded-full shadow-lg">
 
-        <!-- Name and Title -->
         <h1 class="text-xl font-bold mt-3 mb-6 text-gray-800">Abanob Nashat Productions</h1>
         
-        <!-- Primary Action Button: Triggers the new Share Info Modal -->
-        <button onclick="openShareModal()" class="bg-black text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-800 transition duration-150 mb-6">
+        <button onclick="openShareModal()" class="bg-black text-white px-20 py-5 rounded-full font-semibold shadow-lg hover:bg-gray-800 transition duration-150 mb-6 text-lg">
             Share Your Info Back
         </button>
         
 
-        <!-- Links Grid -->
         <div class="w-full px-6 pb-8">
-            <div class="grid grid-cols-3 gap-6">
+            <div class="grid grid-cols-3 gap-2">
 
-                <!-- Row 1 - Instagram -->
-                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
-                    <img src="./instagram.png" alt="Instagram" class="w-12 h-12 rounded-xl object-cover shadow-md">
+                <a href="https://www.instagram.com/Idofilms.co/" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <img src="Instagram.jpg" alt="Instagram" class="w-20 h-20 rounded-xl object-cover shadow-md">
                     <span class="text-xs mt-1 text-gray-700 font-medium">Instagram</span>
                 </a>
                 
-                <!-- Row 1 - Contact Card (Kept as SVG for robustness) -->
                 <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
-                    <div class="w-12 h-12 bg-link-vcard rounded-xl flex items-center justify-center shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
+                    <img src="contact.png" alt="Contact Card" class="w-20 h-20 rounded-xl object-cover shadow-md">
                     <span class="text-xs mt-1 text-gray-700 font-medium">Contact Card</span>
                 </a>
                 
-                <!-- Row 1 - Website (Kept as SVG for robustness) -->
-                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-xl flex items-center justify-center shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
+                <a href="https://idofilms.co/" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <img src="safari.png" alt="Website" class="w-20 h-20 rounded-xl object-cover shadow-md">
                     <span class="text-xs mt-1 text-gray-700 font-medium">Website</span>
                 </a>
 
-                <!-- Row 2 - Facebook -->
-                <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
-                    <img src="./facebook.png" alt="Facebook" class="w-12 h-12 rounded-xl object-cover shadow-md">
+                <a href="https://www.facebook.com/IDoFilms.co" class="icon-link flex flex-col items-center p-3 rounded-lg">
+                    <img src="facebook.png" alt="Facebook" class="w-20 h-20 rounded-xl object-cover shadow-md">
                     <span class="text-xs mt-1 text-gray-700 font-medium">Facebook</span>
                 </a>
                 
-                <!-- Row 2 - Email (Kept as SVG for robustness) -->
                 <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
-                    <div class="w-12 h-12 bg-blue-400 rounded-xl flex items-center justify-center shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    </div>
+                    <img src="email.png" alt="Email" class="w-20 h-20 rounded-xl object-cover shadow-md">
                     <span class="text-xs mt-1 text-gray-700 font-medium">Email</span>
                 </a>
                 
-                <!-- Row 2 - Number (Kept as SVG for robustness) -->
                 <a href="#" class="icon-link flex flex-col items-center p-3 rounded-lg">
-                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.85-5.85A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
+                    <img src="phone.png" alt="Number" class="w-20 h-20 rounded-xl object-cover shadow-md">
                     <span class="text-xs mt-1 text-gray-700 font-medium">Number</span>
                 </a>
 
             </div>
         </div>
         
-        <p class="text-xs text-gray-400 mt-4 mb-4">Responsive Digital Card</p>
-    </div>
-
-    <!-- 1. NFC Popup Modal (Initial scan confirmation) -->
-    <div id="nfcModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="nfcModalContent">
-            <h3 class="text-2xl font-bold text-green-600 mb-2 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-                NFC Scan Successful!
-            </h3>
-            <p class="text-gray-700 mb-4" id="nfcMessage">Thank you for scanning! You have successfully connected with Abanob Nashat Productions.</p>
-            <button onclick="closeNfcModal()" class="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition">
-                Continue to Page
-            </button>
-        </div>
     </div>
     
-    <!-- 2. Share Info Modal (For collecting user contact details) -->
     <div id="shareInfoModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center p-4 z-50">
         <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="shareInfoModalContent">
             <h3 class="text-xl font-bold text-gray-800 mb-4">Share Your Contact Information</h3>
@@ -170,17 +130,14 @@
                     <button type="button" onclick="closeShareModal()" class="flex-1 text-gray-600 bg-gray-100 py-2 rounded-lg font-semibold hover:bg-gray-200 transition">
                         Cancel
                     </button>
-                    <!-- Updated button text and functionality -->
                     <button type="submit" class="flex-1 bg-black text-white py-2 rounded-lg font-semibold hover:bg-gray-800 transition">
                         Submit Info
                     </button>
                 </div>
-                <p class="text-xs text-gray-500 mt-3">Submitting sends your data to the card owner's server.</p>
             </form>
         </div>
     </div>
 
-    <!-- 3. Confirmation Message Modal (Replaces the need for alert()) -->
     <div id="confirmModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center p-4 z-50">
         <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="confirmModalContent">
             <h3 id="confirmTitle" class="text-xl font-bold mb-2"></h3>
@@ -193,11 +150,6 @@
 
 
     <script>
-        // Global references
-        const nfcModal = document.getElementById('nfcModal');
-        const nfcModalContent = document.getElementById('nfcModalContent');
-        const nfcMessage = document.getElementById('nfcMessage');
-
         const shareInfoModal = document.getElementById('shareInfoModal');
         const shareInfoModalContent = document.getElementById('shareInfoModalContent');
         
@@ -207,27 +159,6 @@
         const confirmMessage = document.getElementById('confirmMessage');
 
 
-        // --- NFC Modal Functions ---
-
-        function showNfcModal(message) {
-            nfcMessage.textContent = message;
-            nfcModal.classList.remove('hidden');
-            setTimeout(() => {
-                nfcModalContent.classList.remove('scale-95', 'opacity-0');
-                nfcModalContent.classList.add('scale-100', 'opacity-100');
-            }, 50);
-        }
-
-        function closeNfcModal() {
-            nfcModalContent.classList.remove('scale-100', 'opacity-100');
-            nfcModalContent.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                nfcModal.classList.add('hidden');
-            }, 300);
-        }
-
-        // --- Share Info Modal Functions ---
-        
         function openShareModal() {
             shareInfoModal.classList.remove('hidden');
             setTimeout(() => {
@@ -244,11 +175,6 @@
             }, 300);
         }
 
-        // --- Confirmation Modal Functions ---
-        
-        /**
-         * Shows the final success or failure message.
-         */
         function showConfirmModal(title, message, isSuccess = true) {
             confirmTitle.textContent = title;
             confirmMessage.textContent = message;
@@ -270,20 +196,15 @@
             }, 300);
         }
 
-        /**
-         * Handles form submission: sends data to the server endpoint for saving.
-         */
         function submitInfo(event) {
             event.preventDefault();
 
-            // 1. Get user data
             const name = document.getElementById('userName').value;
             const phone = document.getElementById('userPhone').value;
             const email = document.getElementById('userEmail').value;
             
-            closeShareModal(); // Close the input modal immediately
+            closeShareModal();
 
-            // 2. Data payload
             const formData = {
                 name: name,
                 phone: phone,
@@ -291,8 +212,6 @@
             };
 
             console.log("Attempting to send data to server:", formData);
-            
-            // --- SERVER COMMUNICATION START ---
             
             const serverEndpoint = './save_contact.php'; 
 
@@ -302,7 +221,6 @@
                 body: JSON.stringify(formData),
             })
             .then(response => {
-                // Try to parse JSON even if status is not 200 (for server error details)
                 if (!response.ok) {
                     return response.json().catch(() => { throw new Error(`HTTP Error ${response.status}: Failed to reach or process data on server.`); });
                 }
@@ -322,21 +240,8 @@
                 showConfirmModal("Submission Failed", message, false);
             });
             
-            // --- SERVER COMMUNICATION END ---
-
-            // 3. Reset form
             document.getElementById('contactForm').reset();
         }
-
-
-        // --------------------------------------------------------------------
-        // INITIAL PAGE LOAD LOGIC
-        // The NFC modal is shown immediately because the page loading means the NFC scan was successful.
-        // --------------------------------------------------------------------
-        window.onload = function() {
-            console.log('Page loaded via assumed NFC scan. Showing confirmation.');
-            showNfcModal('Thank you for scanning! You have successfully connected with Abanob Nashat Productions.');
-        };
 
     </script>
 </body>
